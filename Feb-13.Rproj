@@ -1,1 +1,38 @@
+#How many Fridays before 13th of February 
 
+library("lubridate")
+
+#start date
+start_date <- ymd("2026/08/31")
+
+#end date
+end_date <- ymd("2027/02/13")
+
+# generating range of dates, this is sort of unnecessary for the final code, but good to have
+range <- seq(start_date, end_date,"day")
+print(range)
+
+#wday(range, label = TRUE)
+
+#Friday is 6, as command wday states
+
+dayer<-wday(range)
+
+print(dayer)
+fridays <- list()
+
+#While Loop
+
+date <- start_date
+while(date != end_date){
+  if (wday(date) == 6){
+    fridays[[length(fridays)+1]] <- date
+    date <- date + 1
+  }
+  else{
+    date <- date + 1
+  }
+}
+
+print(fridays)
+length(fridays)
